@@ -1,0 +1,34 @@
+name: reporter
+
+on:      
+  schedule:
+    - cron: '58 6 * * *'
+
+jobs:
+  report:
+    name: report
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: setup
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16.6.2'
+    - name: requirements
+      run: npm install
+    - name: node
+      run: npm start
+      env:
+        TOKEN: ${{ secrets.TOKEN }}
+        CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
+        BCRA_URL: ${{ secrets.BCRA_URL }}
+        FB_APIKEY: ${{ secrets.FB_APIKEY }}
+        FB_DATABASEURL: ${{ secrets.FB_DATABASEURL }}
+        FB_PROJECTID: ${{ secrets.FB_PROJECTID }}
+        FB_AUTHDOMAIN: ${{ secrets.FB_AUTHDOMAIN }}
+        FB_STORAGEBUCKET: ${{ secrets.FB_STORAGEBUCKET }}
+        FB_MESSAGINGSENDERID: ${{ secrets.FB_MESSAGINGSENDERID }}
+        FB_APPID: ${{ secrets.FB_APPID }}
+        FB_MEASUREMENTID: ${{ secrets.FB_MEASUREMENTID }}
+        FB_EMAIL: ${{ secrets.FB_EMAIL }}
+        FB_PASSWORD: ${{ secrets.FB_PASSWORD }}
