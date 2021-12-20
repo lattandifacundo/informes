@@ -2,7 +2,7 @@ name: reporter
 
 on:      
   schedule:
-    - cron: '58 6 * * *'
+    - cron: '59 9 * * *'
 
 jobs:
   report:
