@@ -8,15 +8,24 @@ async function fixTextNumToInt(text){
 }
 
 async function formatBigIntToDisplay(text){
-    const unformated = reverseString((text).toString());
+    var unformated = reverseString((text).toString());
+
+    var negative = false;
+    if(unformated.endsWith('-')){
+        negative = true;
+        unformated = unformated.replace('-', '');
+    }
+
     const arrayNums = unformated.match(/.{1,3}/g);
-    const formated = arrayNums.join('.');
+    var formated = arrayNums.join('.');
+
+    if(negative) formated = formated + '-';
+
     return reverseString(formated);
 }
 
 async function formatIntToMegaPesoBigInt(value){
-    const fixedValue = BigInt(value*1) * BigInt(1000000);
-    return fixedValue;
+    return (BigInt(value*1) * BigInt(1000000));
 }
 
 async function fixSimbol(string){
