@@ -7,7 +7,7 @@ async function getAndSaveYesterday(now){
     const yesterday = await firebase.read('1d');
     firebase.write('1d', now);
 
-    if(!yesterday){ console.log('Error accesing firebase'); return 0; }
+    if(!yesterday){ console.log('❌ Error accesing firebase'); return 0; }
 
     console.info("🔥 Now =", now);
     console.info("🔥 Yesterday =", yesterday);
