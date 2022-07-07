@@ -31,11 +31,11 @@ async function formatIntToMegaPesoBigInt(value){
 async function fixSimbol(string){
     var fixedString = string+"";
     if(!fixedString.includes('-')){
-        fixedString = `\+\$${fixedString}`;
+        fixedString = `⬆ \+\$${fixedString}`;
     }
     else{
         var separedString = fixedString.split('-');
-        fixedString = `\-\$${separedString[1]}`;
+        fixedString = `⬇ \-\$${separedString[1]}`;
     }
     return fixedString;
 }
