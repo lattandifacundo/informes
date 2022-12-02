@@ -1,8 +1,9 @@
 name: reporter
 
 on:      
-  schedule:
-    - cron: '59 9 * * *'
+  push:
+    branches:
+      - never
 
 jobs:
   report:
